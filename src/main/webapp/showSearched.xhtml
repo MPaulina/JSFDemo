@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/bootstrap.xhtml">
+
+	<ui:define name="content">
+
+		<h:form>
+
+			<h:dataTable class="table table-striped"
+				value="#{alcoholBean.searchedAlcohols}" var="item">
+				<f:facet name="header">#{msg.alcoholAllLabel}</f:facet>
+
+				<h:column>
+					<f:facet name="header">#{msg.alcoholTypeNameLabel}</f:facet>
+        #{item.type}
+      	</h:column>
+
+				<h:column>
+					<f:facet name="header">#{msg.alcoholNameLabel}</f:facet>
+        #{item.name}
+      	</h:column>
+
+				<h:column>
+					<f:facet name="header">#{msg.alcoholCodeNameLabel}</f:facet>
+        #{item.code}
+      	</h:column>
+
+				<h:column>
+					<f:facet name="header">#{msg.alcoholCapacityNameLabel}</f:facet>
+        #{item.capacity}
+      	</h:column>
+
+				<h:column>
+					<f:facet name="header">#{msg.alcoholQuantunNameLabel}</f:facet>
+        #{item.quantun}
+      	</h:column>
+
+				<h:column>
+					<f:facet name="header">#{msg.alcoholDateNameLabel}</f:facet>
+        #{item.yop}
+      	</h:column>
+
+				<h:column>
+					<f:facet name="header">#{msg.alcoholProcentFreeNameLabel}</f:facet>
+        #{item.procentFree}
+      	</h:column>
+
+				<h:column>
+					<f:facet name="header">#{msg.action}</f:facet>
+					<h:commandLink value="#{msg.actionDelete}"
+						action="#{alcoholBean.deleteAlcohol}" />
+				</h:column>
+
+			</h:dataTable>
+		</h:form>
+
+	</ui:define>
+</ui:composition>
